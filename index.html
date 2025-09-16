@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosystem Track Package - Proof of Talk</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-beige: #f5f1eb;
+            --secondary-beige: #ede7df;
+            --accent-orange: #d4621a;
+            --dark-orange: #b8541a;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--primary-beige);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: var(--white);
+            box-shadow: 0 0 30px rgba(212, 98, 26, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            padding: 120px 40px;
+            min-height: 500px;
+            background: linear-gradient(rgba(245, 241, 235, 0.8), rgba(245, 241, 235, 0.8)), url('Downloads/bittensortrack/louvre.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-dark);
+            position: relative;
+            border-bottom: 1px solid var(--secondary-beige);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 3;
+        }
+
+        .header .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 3;
+        }
+
+        .venue-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange);
+            padding: 15px 30px;
+            margin-top: 30px;
+            font-size: 1em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(212, 98, 26, 0.2);
+            position: relative;
+            z-index: 3;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 120px;
+            height: auto;
+            z-index: 4;
+            opacity: 0.95;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 50px;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 60px;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.7;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlights, .outcomes, .included {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subsection-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--accent-orange);
+            border-bottom: 3px solid var(--accent-orange);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .highlight-item, .outcome-item {
+            margin-bottom: 16px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.05em;
+            line-height: 1.6;
+        }
+
+        .highlight-item::before, .outcome-item::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: var(--accent-orange);
+            font-size: 1.2em;
+        }
+
+        .included-item {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: var(--white);
+            border: 1px solid var(--secondary-beige);
+            border-left: 4px solid var(--accent-orange);
+            box-shadow: 0 4px 20px rgba(212, 98, 26, 0.08);
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .included-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(212, 98, 26, 0.15);
+        }
+
+        .included-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .included-description {
+            color: var(--text-light);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .included-images {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .included-images.single {
+            grid-template-columns: 1fr;
+        }
+
+        .included-images.double {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .included-images.triple {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .included-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(212, 98, 26, 0.1);
+        }
+
+        .included-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .included-image.video {
+            background: var(--primary-beige);
+            border: 2px dashed var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .image-caption {
+            font-size: 0.9em;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .assembly-image-container {
+            width: 100%;
+            margin: 40px 0;
+            text-align: center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .assembly-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .outcomes-list-external {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .outcome-item-external {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-orange);
+            box-shadow: 0 2px 10px rgba(212, 98, 26, 0.1);
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+
+        .keynote-fireside-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .stats {
+            background: url('Downloads/bittensortrack/assembly.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 40px;
+            margin: 30px 0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .stats h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 3;
+        }
+
+        .outcomes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .outcome-item-stats {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            border-left: 4px solid var(--white);
+            font-size: 1.05em;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .image-container {
+            width: 100%;
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%);
+            border: 2px dashed var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 1.1em;
+            border-radius: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .value-proposition {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--dark-orange) 100%);
+            color: var(--white);
+            padding: 50px;
+            margin-top: 50px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(212, 98, 26, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-proposition::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="lines" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 L100,50" stroke="white" stroke-width="0.5" opacity="0.1"/><path d="M50,0 L50,100" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23lines)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .value-proposition h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .value-proposition p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+
+        .cta {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 60px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .cta p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 18px 50px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-orange);
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 98, 26, 0.3);
+        }
+
+        .summary-table {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(212, 98, 26, 0.1);
+            margin: 50px 0;
+            overflow: hidden;
+            border: 1px solid var(--secondary-beige);
+        }
+
+        .summary-table h3 {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, var(--dark-orange) 100%);
+            color: var(--white);
+            padding: 25px 30px;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .summary-content {
+            padding: 25px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .summary-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+
+        .summary-intro p {
+            font-size: 1.2em;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 500;
+            margin: 0 0 25px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-details {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 1.15em;
+            font-weight: 600;
+            padding: 20px 30px;
+            background: rgba(212, 98, 26, 0.08);
+            border-radius: 12px;
+            border: 1px solid rgba(212, 98, 26, 0.15);
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .summary-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-orange);
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(212, 98, 26, 0.05);
+        }
+
+        .summary-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 8px rgba(212, 98, 26, 0.1);
+        }
+
+        .summary-item-title {
+            font-size: 1em;
+            font-weight: 700;
+            color: var(--accent-orange);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-item-desc {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+
+        .tweet-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .tweet-card {
+            background: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 16px;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .tweet-card:hover {
+            background: #f7f9fa;
+            border-color: #d1d9e0;
+        }
+
+        .tweet-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .tweet-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tweet-author-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tweet-author-line {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 2px;
+        }
+
+        .tweet-name {
+            font-weight: 700;
+            color: #0f1419;
+            font-size: 15px;
+            text-decoration: none;
+        }
+
+        .tweet-verified {
+            color: #1d9bf0;
+            font-size: 16px;
+        }
+
+        .tweet-handle {
+            color: #536471;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .tweet-date {
+            color: #536471;
+            font-size: 15px;
+        }
+
+        .tweet-content {
+            color: #0f1419;
+            font-size: 15px;
+            line-height: 20px;
+            margin-bottom: 12px;
+            white-space: pre-wrap;
+        }
+
+        .tweet-link {
+            color: #1d9bf0;
+            text-decoration: none;
+        }
+
+        .tweet-link:hover {
+            text-decoration: underline;
+        }
+
+        .tweet-engagement {
+            display: flex;
+            justify-content: space-between;
+            max-width: 425px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #eff3f4;
+        }
+
+        .tweet-stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #536471;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .tweet-stat:hover {
+            color: #1d9bf0;
+        }
+
+        .tweet-stat-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .tweet-more {
+            margin-left: auto;
+            color: #536471;
+            cursor: pointer;
+        }
+
+        .tweet-images-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tweet-image-container {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(212, 98, 26, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 98, 26, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .tweet-image-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 98, 26, 0.12);
+        }
+
+        .tweet-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .agenda-container {
+            margin: 30px 0;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(212, 98, 26, 0.08);
+        }
+
+        .agenda-title {
+            text-align: center;
+            color: var(--accent-orange);
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-beige);
+        }
+
+        .outcomes-title {
+            text-align: center;
+            color: var(--accent-orange);
+            font-size: 1.4em;
+            font-weight: 700;
+            margin: 30px 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-beige);
+        }
+
+        .social-comparison-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(212, 98, 26, 0.08);
+            border: 1px solid rgba(212, 98, 26, 0.1);
+        }
+
+        .comparison-title {
+            text-align: center;
+            color: var(--accent-orange);
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-beige);
+        }
+
+        .comparison-intro {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            font-weight: 500;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        .competitor-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .bittensor-badge {
+            background: rgba(212, 98, 26, 0.1);
+            color: var(--text-dark);
+            border: 1px solid rgba(212, 98, 26, 0.2);
+        }
+
+        .stellar-badge {
+            background: rgba(74, 144, 226, 0.1);
+            color: var(--text-dark);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+
+        .badge-icon {
+            font-size: 1.5em;
+        }
+
+        .badge-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            background: transparent;
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .badge-name {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .badge-desc {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .vs-divider {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--text-light);
+            padding: 10px 15px;
+            background: var(--secondary-beige);
+            border-radius: 8px;
+        }
+
+        .metrics-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(212, 98, 26, 0.08);
+            border: 1px solid rgba(212, 98, 26, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 98, 26, 0.15);
+        }
+
+        .metric-card.highlight {
+            border: 2px solid var(--accent-orange);
+            background: linear-gradient(135deg, var(--white) 0%, var(--primary-beige) 100%);
+        }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .metric-icon {
+            font-size: 1.2em;
+        }
+
+        .metric-label {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .metric-values {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .winner-value {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .vs-text {
+            font-size: 0.7em;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .competitor-value {
+            font-size: 1em;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .metric-boost {
+            font-size: 0.8em;
+            color: #00a86b;
+            font-weight: 700;
+            background: rgba(0, 168, 107, 0.1);
+            padding: 4px 8px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .impact-conclusion {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: rgba(212, 98, 26, 0.05);
+            color: var(--text-dark);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 98, 26, 0.1);
+        }
+
+        .conclusion-icon {
+            font-size: 2.5em;
+            flex-shrink: 0;
+        }
+
+        .conclusion-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent-orange);
+        }
+
+        .conclusion-text {
+            font-size: 1em;
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+
+        .agenda-days {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .agenda-day {
+            border-left: 3px solid var(--accent-orange);
+            padding-left: 20px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--secondary-beige);
+        }
+
+        .day-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--accent-orange);
+        }
+
+        .day-date {
+            font-size: 1em;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .agenda-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .agenda-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            padding: 8px 0;
+        }
+
+        .agenda-item .time {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-weight: 600;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+
+        .agenda-item .session {
+            font-size: 0.9em;
+            color: var(--text-dark);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--primary-beige);
+            border-radius: 8px;
+        }
+
+        .logo-container {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-placeholder {
+            width: 45%;
+            height: 100px;
+            background: var(--primary-beige);
+            border: 2px dashed var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-style: italic;
+            border-radius: 8px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body { 
+                font-size: 12pt; 
+                line-height: 1.4;
+                background: var(--primary-beige) !important;
+            }
+            .container { 
+                box-shadow: none; 
+                max-width: none;
+            }
+            .header { 
+                padding: 30pt; 
+                background: var(--accent-orange) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .left-section, .right-section { 
+                padding: 30pt; 
+            }
+            .left-section {
+                background: var(--secondary-beige) !important;
+                -webkit-print-color-adjust: exact;
+            }
+            .stats { 
+                background: var(--accent-orange) !important; 
+                -webkit-print-color-adjust: exact;
+            }
+            .value-proposition { 
+                background: var(--accent-orange) !important; 
+                -webkit-print-color-adjust: exact;
+            }
+            .cta { 
+                background: var(--text-dark) !important; 
+                -webkit-print-color-adjust: exact;
+            }
+            .image-container img {
+                height: 150px;
+                font-size: 10pt;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 60px 30px;
+            }
+            
+            .header h1 {
+                font-size: 3em;
+            }
+            
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .included-images.triple {
+                grid-template-columns: 1fr;
+            }
+
+            .included-images.double {
+                grid-template-columns: 1fr;
+            }
+
+            .keynote-fireside-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .outcomes-list-external {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agenda-days {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .agenda-container {
+                padding: 20px;
+            }
+
+            .tweet-images-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-comparison-section {
+                padding: 25px 20px;
+            }
+
+            .comparison-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 80px 20px;
+                min-height: 400px;
+            }
+
+            .header-logo {
+                top: 20px;
+                right: 20px;
+                width: 80px;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .included-item {
+                padding: 30px 20px;
+            }
+
+            .included-images.triple {
+                grid-template-columns: 1fr;
+            }
+
+            .included-images.double {
+                grid-template-columns: 1fr;
+            }
+
+            .tweet-images-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .metrics-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-conclusion {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Proof of Talk 2026 | Ecosystem Track Sponsorship</h1>
+                <p class="subtitle">Position Your Protocol at the Center of the Global Web3 Conversation</p>
+                <div class="venue-badge">At The Louvre, Paris</div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <h2 class="section-title">Own Your Ecosystem Track at Proof of Talk 2026</h2>
+            <p class="section-subtitle">Following the breakout success of the Bittensor Track at Proof of Talk 2025 — featuring Barry Silbert's first conference appearance in five years, standing-room-only sessions, and 1.2M+ social impressions — we're inviting select protocols to headline their own Ecosystem Track in 2026.</p>
+            <p class="section-subtitle">An Ecosystem Track is your dedicated two-day program within Proof of Talk: a "conference inside the conference" where every keynote, panel, and workshop spotlights your protocol across our three main stages in the Louvre.</p>
+            <p class="section-subtitle">Reach 2,000+ Web3 leaders, top-tier investors, and global institutions with maximum visibility to showcase your ecosystem, accelerate adoption, and forge partnerships at the highest level.</p>
+
+            <div class="included">
+                <h3 class="subsection-title">Your 2026 Ecosystem Sponsorship Package</h3>
+                
+                <div class="keynote-fireside-grid">
+                    <div class="included-item" style="margin-bottom: 0;">
+                        <div class="included-title">🎤 Keynote Address</div>
+                        <div class="included-description">Your founder opens the track with a flagship keynote, setting the vision and tone for your ecosystem's future.</div>
+                        <div class="included-images single">
+                            <div class="included-image">
+                                <img src="Downloads/bittensortrack/jake.jpeg" alt="Jacob Steeves Keynote">
+                                <div class="image-caption">Jacob Steeves delivering the opening keynote for Bittensor Track 2025</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="included-item" style="margin-bottom: 0;">
+                        <div class="included-title">🔥 Fireside Chat</div>
+                        <div class="included-description">An intimate conversation with one of your ecosystem's most influential leaders, leveraging their credibility and vision to inspire and convert the audience.</div>
+                        <div class="included-images single">
+                            <div class="included-image">
+                                <img src="Downloads/bittensortrack/fireside.jpg" alt="Fireside Chat with Barry Silbert">
+                                <div class="image-caption">Barry Silbert's first conference appearance in 5+ years at Bittensor Track</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-title">💡 Curated Panels</div>
+                    <div class="included-description">Five headline panels across our main stages, bringing together top investors, builders, and institutions to discuss your ecosystem's vision, growth, and adoption — ensuring you define the narrative that drives the market forward.</div>
+                    <div class="included-images triple">
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/panel 2.jpg" alt="Bittensor Panel Discussion">
+                            <div class="image-caption">Panel - Mining Intelligence on the Open Web</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/panel3.jpg" alt="Bittensor Panel Discussion">
+                            <div class="image-caption">Panel - Building a Sustainable Business Model as a Subnet Owner</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/panel 4.jpg" alt="Bittensor Panel Discussion">
+                            <div class="image-caption">Panel - How to Invest in Subnet Tokens</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-title">🏆 Proof of Pitch - Dedicated Ecosystem Track</div>
+                    <div class="included-description">Your ecosystem secures its own category in the industry's most competitive pitch competition - Proof of Pitch. Community projects pitch directly to the strongest VC lineup in Web3, followed by a jury roundtable that cements your ecosystem's relevance and funding appeal.</div>
+                    <div class="included-images triple">
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/pop1.jpg" alt="Proof of Pitch Competition">
+                            <div class="image-caption">Ecosystem startups pitching to a room filled with the leading VCs and family offices in Web3</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/pop2.jpg" alt="Proof of Pitch Presentation">
+                            <div class="image-caption">Standing-Room-Only Audience Engagement during PoP - Bittensor Track</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/pop3.jpg" alt="Proof of Pitch Jury Panel">
+                            <div class="image-caption">Dynamic Roundtable with the Jury during PoP - DeAI track, featuring partners from Spartan, Arrington Capital, Big Brain Holdings, and Borderless Capital</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-title">🌟 Ecosystem Showcase & Networking Hub</div>
+                    <div class="included-description">A 45-minute workshop led by your team (with optional 15-minute Q&A) — or opened up as a showcase where multiple builders present what they're building and highlight real innovation. In addition, all booths from your ecosystem will be grouped under a dedicated networking area, with you as the title sponsor for the entire zone as well as your own flagship booth.</div>
+                    <div class="included-images triple">
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/ecosystemshowcase.jpeg" alt="Ecosystem Showcase Presentation">
+                            <div class="image-caption">Tour of Bittensor Subnets Workshop</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/ecosystemshowcase2.jpeg" alt="Ecosystem Showcase Session">
+                            <div class="image-caption">Score's Booth (Subnet 44)</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/ecosystemshowcase3.jpg" alt="Ecosystem Community Showcase">
+                            <div class="image-caption">Manifold Labs' Booth (Subnet 4)</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="included-item">
+                    <div class="included-title">🍽️ Exclusive Side Events & Networking</div>
+                    <div class="included-description">As Ecosystem Track Sponsor, you host your own ecosystem side event on Day 1 and a branded happy hour on Day 2, creating powerful moments to spotlight your community and forge partnerships. You also gain exclusive access to the Speakers & VIP Dinner, the Investors Dinner, and the After Party, ensuring your team is embedded in the summit's most influential conversations.</div>
+                    <div class="included-images triple">
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/sideevent1.jpg" alt="Side Event 1">
+                            <div class="image-caption">Bittensor Side-Event</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/sideevent2.jpg" alt="Side Event 2">
+                            <div class="image-caption">VIP Networking Dinner</div>
+                        </div>
+                        <div class="included-image">
+                            <img src="Downloads/bittensortrack/sideevent3.jpg" alt="Side Event 3">
+                            <div class="image-caption">After Party</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-title">📱 Full Marketing & Media Campaign</div>
+                    <div class="included-description">Your track becomes the focal point of Proof of Talk marketing. A dedicated landing page, speaker cards, social campaigns, and a professional highlight reel amplify your presence to millions beyond the Louvre.</div>
+                    
+                    <div class="tweet-images-showcase">
+                        <div class="tweet-image-container">
+                            <img src="Downloads/bittensortrack/tweetbarry.jpg" alt="Barry Silbert Tweet" class="tweet-image">
+                        </div>
+                        <div class="tweet-image-container">
+                            <img src="Downloads/bittensortrack/tweetdread.jpg" alt="DreadBong0 Tweet" class="tweet-image">
+                        </div>
+                        <div class="tweet-image-container">
+                            <img src="Downloads/bittensortrack/tweettrack.jpg" alt="Track Tweet" class="tweet-image">
+                        </div>
+                        <div class="tweet-image-container">
+                            <img src="Downloads/bittensortrack/tweetjake.jpg" alt="Jake Tweet" class="tweet-image">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="included-item">
+                    <div class="included-title">🏢 Flagship Branded Booth</div>
+                    <div class="included-description">As Ecosystem Track Sponsor, you receive a 15–20 sqm flagship booth at the heart of your Ecosystem Networking Hub. Fully branded and centrally located, this space becomes the focal point for investors, partners, and builders to connect with your team, experience live demos, and engage directly with your ecosystem.</div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Bittensor Track 2025 Highlights</h3>
+            
+            <div class="assembly-image-container">
+                <img src="Downloads/bittensortrack/assembly.jpg" alt="Bittensor Track Assembly Hall" class="assembly-image">
+            </div>
+
+            <div class="agenda-container">
+                <h4 class="agenda-title">Bittensor Track Agenda</h4>
+                
+                <div class="agenda-days">
+                    <div class="agenda-day">
+                    <div class="day-header">
+                        <span class="day-title">Day 1</span>
+                        <span class="day-date">June 10th</span>
+                    </div>
+                    <div class="agenda-items">
+                        <div class="agenda-item">
+                            <span class="time">11:20-11:40</span>
+                            <span class="session">
+                                <strong>Main Stage</strong><br>
+                                Keynote: Jacob Steeves (Co-Founder, Bittensor)
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">11:45-12:25</span>
+                            <span class="session">
+                                <strong>Main Stage</strong><br>
+                                Fireside: Barry Silbert (DCG) & David Lawee (CapitalG)
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">15:40-16:20</span>
+                            <span class="session">
+                                <strong>Main Stage</strong><br>
+                                Panel: Mining Intelligence on the Open Web
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">17:30-18:15</span>
+                            <span class="session">
+                                <strong>Workshop Room</strong><br>
+                                Subnet Showcase Workshop (12 Projects)
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">18:15-20:00</span>
+                            <span class="session">Bittensor Side Event: Drinks in the Louvre</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">20:00-23:00</span>
+                            <span class="session">VIP & Speakers Dinner</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="agenda-day">
+                    <div class="day-header">
+                        <span class="day-title">Day 2</span>
+                        <span class="day-date">June 11th</span>
+                    </div>
+                    <div class="agenda-items">
+                        <div class="agenda-item">
+                            <span class="time">10:05-10:35</span>
+                            <span class="session">
+                                <strong>Workshop Room</strong><br>
+                                Panel: Real-World Use Cases Powered by Subnets
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">10:40-11:10</span>
+                            <span class="session">
+                                <strong>Workshop Room</strong><br>
+                                Workshop: Confidential Computing
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">11:10-11:25</span>
+                            <span class="session">
+                                <strong>Second Stage</strong><br>
+                                Panel: Building Sustainable Business Models
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">11:50-12:25</span>
+                            <span class="session">
+                                <strong>Second Stage</strong><br>
+                                Panel: How to Invest in Subnet Tokens
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">15:15-16:30</span>
+                            <span class="session">
+                                <strong>Workshop Room</strong><br>
+                                Proof of Pitch: Bittensor Track
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">17:00-18:00</span>
+                            <span class="session">
+                                <strong>Second Stage</strong><br>
+                                Closing Panel: Novelty Search in the Louvre
+                            </span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">18:00-20:00</span>
+                            <span class="session">Closing Drinks</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">20:00-23:00</span>
+                            <span class="session">Investor's Dinner</span>
+                        </div>
+                        <div class="agenda-item">
+                            <span class="time">23:00-05:00</span>
+                            <span class="session">Afterparty</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <h4 class="outcomes-title">Key Outcomes</h4>
+            
+            <div class="outcomes-list-external">
+                <div class="outcome-item-external">🚀 First-ever full summit for the Bittensor ecosystem — establishing it as a leading force in decentralized AI.</div>
+                <div class="outcome-item-external">🌐 Every major ecosystem player on stage — uniting founders, builders, and investors in one historic gathering.</div>
+                <div class="outcome-item-external">⭐ Barry Silbert's first conference appearance in 5+ years — drawing global media and investor attention.</div>
+                <div class="outcome-item-external">🙌 Standing-room-only sessions — overflowing audiences across every keynote, panel, and workshop.</div>
+                <div class="outcome-item-external">👥 2,000+ of Web3's most influential leaders reached — showcasing Bittensor's vision to the industry's decision-makers.</div>
+                <div class="outcome-item-external">📢 Major Announcements: Barry Silbert announced institutional products for subnet tokens, and Jacob Steeves announced the launch of his new subnet.</div>
+                <div class="outcome-item-external">🔑 Premium exposure for ecosystem projects — catalyzing partnerships, adoption, and new capital inflows.</div>
+                <div class="outcome-item-external">🏆 Dedicated Proof of Pitch track — positioning Bittensor startups directly in front of the strongest VC lineup in Web3.</div>
+            </div>
+
+            <div class="social-comparison-section">
+                <h4 class="comparison-title">Social Media Performance: Proof of Talk vs. Paris Blockchain Week</h4>
+                <p class="comparison-intro">Despite being a single track within Proof of Talk, the Bittensor Ecosystem Track massively outperformed Stellar Network's entire title sponsorship of Paris Blockchain Week across every social media metric.</p>
+                
+                <div class="comparison-header">
+                    <div class="competitor-label">
+                        <div class="competitor-badge bittensor-badge">
+                            <img src="Downloads/bittensortrack/tao.jpg" alt="Bittensor Logo" class="badge-logo">
+                            <div class="badge-text">
+                                <div class="badge-name">Bittensor</div>
+                                <div class="badge-desc">PoT Track Sponsor</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-divider">VS</div>
+                    <div class="competitor-label">
+                        <div class="competitor-badge stellar-badge">
+                            <img src="Downloads/bittensortrack/stellar.jpg" alt="Stellar Logo" class="badge-logo">
+                            <div class="badge-text">
+                                <div class="badge-name">Stellar Network</div>
+                                <div class="badge-desc">PBW Title Sponsor</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-showcase">
+                    <div class="metric-card highlight">
+                        <div class="metric-header">
+                            <span class="metric-icon">👁️</span>
+                            <span class="metric-label">Total Impressions</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">1.2M</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">250K</span>
+                        </div>
+                        <div class="metric-boost">+380% higher</div>
+                    </div>
+                    
+                    <div class="metric-card highlight">
+                        <div class="metric-header">
+                            <span class="metric-icon">💬</span>
+                            <span class="metric-label">Total Engagements</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">13K</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">3K</span>
+                        </div>
+                        <div class="metric-boost">+333% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">📈</span>
+                            <span class="metric-label">Avg Views/Post</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">15K</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">10K</span>
+                        </div>
+                        <div class="metric-boost">+50% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">❤️</span>
+                            <span class="metric-label">Likes</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">8,000</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">1,200</span>
+                        </div>
+                        <div class="metric-boost">+567% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">🔄</span>
+                            <span class="metric-label">Reposts</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">1,200</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">250</span>
+                        </div>
+                        <div class="metric-boost">+380% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">💭</span>
+                            <span class="metric-label">Replies</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">500</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">100</span>
+                        </div>
+                        <div class="metric-boost">+400% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">💬</span>
+                            <span class="metric-label">Quotes</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">100</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">15</span>
+                        </div>
+                        <div class="metric-boost">+567% higher</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <span class="metric-icon">🔖</span>
+                            <span class="metric-label">Bookmarks</span>
+                        </div>
+                        <div class="metric-values">
+                            <span class="winner-value">500</span>
+                            <span class="vs-text">vs</span>
+                            <span class="competitor-value">60</span>
+                        </div>
+                        <div class="metric-boost">+733% higher</div>
+                    </div>
+                </div>
+                
+                <div class="impact-conclusion">
+                    <div class="conclusion-icon">🏆</div>
+                    <div class="conclusion-content">
+                        <div class="conclusion-title">The Power of Authentic Community Engagement</div>
+                        <div class="conclusion-text">A focused ecosystem track with genuine community excitement delivered 470% higher average engagement than a traditional title sponsorship.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-table">
+                <h3>Your Ecosystem Track Sponsorship Package</h3>
+                <div class="summary-intro">
+                    <p>As a Track Sponsor, you don't just participate — you own the narrative of your ecosystem at Proof of Talk 2026. Your package includes:</p>
+                    <div class="event-details">
+                        <strong>📍 The Louvre, Paris • 📅 June 2nd-3rd, 2026</strong>
+                    </div>
+                </div>
+                <div class="summary-content">
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-item-title">🎤 Flagship Keynote</div>
+                            <div class="summary-item-desc">20-minute opening keynote delivered by one of your founders, setting the vision and momentum for your ecosystem.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🔥 Exclusive Fireside Chat</div>
+                            <div class="summary-item-desc">30-40 minute conversation with your protocol's most influential thought leader, designed to inspire confidence and attract capital.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">💡 Curated Panels</div>
+                            <div class="summary-item-desc">Up to 5 high-profile panels on our main stages, featuring top investors, builders, and institutions, all framed around your ecosystem's growth and adoption.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🏆 Dedicated Proof of Pitch Track</div>
+                            <div class="summary-item-desc">Your ecosystem secures its own track in the premier Web3 pitch competition. Community startups pitch directly to the strongest VC jury in the industry, followed by a dedicated jury roundtable discussion.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🌟 Ecosystem Showcase Workshop</div>
+                            <div class="summary-item-desc">A 45-minute workshop hosted by your team (with optional 15-minute Q&A) — or opened up as a multi-project showcase, where builders from across your ecosystem present what they're building and demonstrate real innovation.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🍽️ Ecosystem Side Event</div>
+                            <div class="summary-item-desc">A flagship side event hosted by your team to bring the community together and forge new partnerships.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🤝 Ecosystem Networking Hub</div>
+                            <div class="summary-item-desc">All booths from your ecosystem are located in a dedicated branded area — a central networking hub hosted by your track, giving your builders maximum exposure and ownership of the conversation.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🍸 Track Sponsor Happy Hour</div>
+                            <div class="summary-item-desc">Host an official networking happy hour under your brand, creating a vibrant, informal space for investors and partners to connect directly with your ecosystem.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🔑 Exclusive Access</div>
+                            <div class="summary-item-desc">Guaranteed seats at the most valuable closed-door moments of Proof of Talk — including the Speakers & VIP Dinner, the private Investors Dinner, and the Community Afterparty.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">📱 Marketing & Media Campaign</div>
+                            <div class="summary-item-desc">Dedicated ecosystem landing page, full marketing push with speaker cards and social campaigns, plus premium onsite and online branding (2nd-highest priority placement across the summit).</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🏢 Flagship Branded Booth</div>
+                            <div class="summary-item-desc">15–20 sqm flagship booth at the heart of your Ecosystem Networking Hub, fully branded and centrally located for maximum investor and partner engagement.</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-item-title">🎟️ Premium Ticketing Package</div>
+                            <div class="summary-item-desc">5 VIP Black Tickets (all-access)<br>5 VIP Tickets<br>10 Premium Tickets</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="value-proposition">
+                <h3>The Ultimate Ecosystem Showcase</h3>
+                <p>Take over the Louvre with your own track. Shape the ultimate narrative for your ecosystem through keynotes, panels, fireside chats, pitch competitions, side-events and much more. Gain direct exposure and form partnerships with the most influential leaders in both Web3 and traditional finance.</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Showcase Your Ecosystem?</h2>
+            <p>Join the most prestigious Web3 conference at the Louvre</p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </div>
+</body>
+</html>
+
