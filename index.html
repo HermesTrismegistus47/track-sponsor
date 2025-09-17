@@ -165,10 +165,22 @@
             font-size: 1.8em;
             font-weight: 600;
             margin-bottom: 30px;
-            color: var(--accent-orange);
+            color: var(--text-dark);
             border-bottom: 3px solid var(--accent-orange);
             padding-bottom: 10px;
-            display: inline-block;
+            display: block;
+            width: 100%;
+            position: relative;
+        }
+
+        .subsection-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-orange);
         }
 
         .highlight-item, .outcome-item {
@@ -523,7 +535,7 @@
         .summary-intro {
             text-align: center;
             margin-bottom: 40px;
-            padding: 0;
+            padding: 40px 0 0 0;
             background: none;
             border: none;
         }
@@ -1303,7 +1315,7 @@
                 </div>
 
                 <div class="included-item">
-                    <div class="included-title">🌟 Ecosystem Showcase & Networking Hub</div>
+                    <div class="included-title">🌟 Workshops & Networking Hub</div>
                     <div class="included-description">A 45-minute workshop led by your team (with optional 15-minute Q&A) — or opened up as a showcase where multiple builders present what they're building and highlight real innovation. In addition, all booths from your ecosystem will be grouped under a dedicated networking area, with you as the title sponsor for the entire zone as well as your own flagship booth.</div>
                     <div class="included-images triple">
                         <div class="included-image">
@@ -1323,7 +1335,7 @@
 
 
                 <div class="included-item">
-                    <div class="included-title">🍽️ Exclusive Side Events & Networking</div>
+                    <div class="included-title">🍻 Exclusive Side Events & Networking</div>
                     <div class="included-description">As Ecosystem Track Sponsor, you host your own ecosystem side event on Day 1 and a branded happy hour on Day 2, creating powerful moments to spotlight your community and forge partnerships. You also gain exclusive access to the Speakers & VIP Dinner, the Investors Dinner, and the After Party, ensuring your team is embedded in the summit's most influential conversations.</div>
                     <div class="included-images triple">
                         <div class="included-image">
@@ -1486,19 +1498,17 @@
             <h4 class="outcomes-title">Key Outcomes</h4>
             
             <div class="outcomes-list-external">
-                <div class="outcome-item-external">🚀 First-ever full summit for the Bittensor ecosystem — establishing it as a leading force in decentralized AI.</div>
-                <div class="outcome-item-external">🌐 Every major ecosystem player on stage — uniting founders, builders, and investors in one historic gathering.</div>
                 <div class="outcome-item-external">⭐ Barry Silbert's first conference appearance in 5+ years — drawing global media and investor attention.</div>
                 <div class="outcome-item-external">🙌 Standing-room-only sessions — overflowing audiences across every keynote, panel, and workshop.</div>
-                <div class="outcome-item-external">👥 2,000+ of Web3's most influential leaders reached — showcasing Bittensor's vision to the industry's decision-makers.</div>
+                <div class="outcome-item-external">👥 2,000 of Web3's most influential leaders reached — showcasing Bittensor's vision to the industry's decision-makers.</div>
                 <div class="outcome-item-external">📢 Major Announcements: Barry Silbert announced institutional products for subnet tokens, and Jacob Steeves announced the launch of his new subnet.</div>
                 <div class="outcome-item-external">🔑 Premium exposure for ecosystem projects — catalyzing partnerships, adoption, and new capital inflows.</div>
-                <div class="outcome-item-external">🏆 Dedicated Proof of Pitch track — positioning Bittensor startups directly in front of the strongest VC lineup in Web3.</div>
+                <div class="outcome-item-external">🏆 Dedicated Proof of Pitch track — positioning Bittensor startups directly in front of the strongest investors in Web3.</div>
             </div>
 
             <div class="social-comparison-section">
                 <h4 class="comparison-title">Social Media Performance: Proof of Talk vs. Paris Blockchain Week</h4>
-                <p class="comparison-intro">Despite being a single track within Proof of Talk, the Bittensor Ecosystem Track massively outperformed Stellar Network's entire title sponsorship of Paris Blockchain Week across every social media metric.</p>
+                <p class="comparison-intro">Despite Proof of Talk being a smaller and more exclusive conference, the Bittensor Ecosystem Track massively outperformed Stellar Network's full title sponsorship of Paris Blockchain Week across every social metric.</p>
                 
                 <div class="comparison-header">
                     <div class="competitor-label">
@@ -1634,9 +1644,6 @@
                 <h3>Your Ecosystem Track Sponsorship Package</h3>
                 <div class="summary-intro">
                     <p>As a Track Sponsor, you don't just participate — you own the narrative of your ecosystem at Proof of Talk 2026. Your package includes:</p>
-                    <div class="event-details">
-                        <strong>📍 The Louvre, Paris • 📅 June 2nd-3rd, 2026</strong>
-                    </div>
                 </div>
                 <div class="summary-content">
                     <div class="summary-grid">
@@ -1701,7 +1708,7 @@
         <div class="cta">
             <h2>Ready to Showcase Your Ecosystem?</h2>
             <p>Join the most prestigious Web3 conference at the Louvre</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
+            <a href="https://calendly.com/karl_rusche_xventures" target="_blank" class="cta-button">Get In Touch</a>
         </div>
     </div>
 </body>
